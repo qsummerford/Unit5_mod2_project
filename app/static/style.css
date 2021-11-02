@@ -1,0 +1,51 @@
+.homepage_background {
+  background-color: #bcf4de;
+}
+
+.welcome_statement {
+  color: white;
+  text-shadow: 2px 2px black;
+  font-size: 2em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.navbar {
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+  background-color: #ded6d1;
+  position: sticky;
+  font-size: 1.25em;
+}
+
+a:link {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+a:active {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}

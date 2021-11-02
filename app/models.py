@@ -8,8 +8,8 @@ class Network(models.Model):
     name = models.CharField(max_length=50)
 
 class Show(models.Model):
-    provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
-    network = models.ForeignKey(Network, on_delete=models.CASCADE)
+    provider = models.ForeignKey(Provider, on_delete=models.PROTECT)
+    network = models.ForeignKey(Network, on_delete=models.PROTECT)
     show = models.CharField(max_length=50)
 
 def create_provider(name):
