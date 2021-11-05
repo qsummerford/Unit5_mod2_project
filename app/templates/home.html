@@ -1,0 +1,44 @@
+{% extends 'base.html' %}{% block content %}
+<body class="homepage_background">
+  <nav class="navbar">
+    <p>Show Creator</p>
+  </nav>
+
+  <div class="col-md-7">
+    <hr />
+    <div class="card card-body">
+      <a class="btn btn-primary btn-sm btn-block" href="{%url 'create'%}"
+        >Create</a
+      >
+      <table class="word_spacing">
+        <tr>
+          <th>User</th>
+          <th>Date Created</th>
+          <th>Network</th>
+          <th>Show</th>
+        </tr>
+        {% for shows in show %}
+        <tr class="word_spacing">
+          <td>{{shows.user}}</td>
+          {% for users in user %}
+          <td>{{users.date_created}}</td>
+          {%endfor%}
+          <td>{{shows.network}}</td>
+          <td>{{shows.show}}</td>
+          <td>
+            <a class="btn btn-sm btn-info" href="{% url 'update' shows.id %}"
+              >Update</a
+            >
+          </td>
+          <td>
+            <a class="btn btn-sm btn-danger" href="{% url 'delete' shows.id%}"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  {%endblock%}
+</body>
