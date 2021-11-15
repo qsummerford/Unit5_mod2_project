@@ -1,5 +1,5 @@
 .homepage_background {
-  background-color: #bcf4de;
+  background-color: #fff;
 }
 
 .welcome_statement {
@@ -12,40 +12,94 @@
 
 .navbar {
   margin-top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 10px;
   background-color: #ded6d1;
   position: sticky;
-  color: white;
-  text-shadow: 2px 2px black;
+  padding: 1px;
+}
+
+.nav-title {
   font-size: 2em;
   text-decoration: underline;
+  text-shadow: 2px 2px black;
+  text-align: center;
+  color: white;
+  padding-bottom: 3px;
+}
+
+.logout_button {
+  text-decoration: none;
+  float: right;
+  font-size: 1em;
+  color: black;
+  border: 2px solid black;
+  padding: 1px;
+  border-radius: 0.3em;
+  background-color: white;
+}
+
+.logout_button:hover {
+  background-color: #ded6d1;
+}
+
+.delete_button {
+  background-color: #dc143c;
+  text-shadow: none;
+  color: black;
+  border: black 2px;
+  border-style: ridge;
+  padding: 1.5px;
+  border-radius: 0.3em;
+}
+
+.delete_button:hover {
+  background-color: red;
+  text-shadow: none;
+  color: black;
+}
+
+.update_button {
+  background-color: #e9ecef;
+  text-shadow: none;
+  color: black;
+  border: black 2px;
+  border-style: ridge;
+  padding: 1px;
+  border-radius: 0.3em;
+}
+
+.update_button:hover {
+  background-color: white;
+  text-shadow: none;
+  color: black;
+}
+
+.create_button {
+  margin-left: 2.75em;
+  border: 2px solid black;
+  border-radius: 0.3em;
+  padding: 1px;
+  color: black;
+  background-color: goldenrod;
+}
+
+.create_button:hover {
+  background-color: gold;
 }
 
 a:link {
   text-decoration: none;
-  color: white;
-  text-shadow: 1px 1px black;
 }
 
 a:active {
   text-decoration: none;
-  color: white;
-  text-shadow: 1px 1px black;
 }
 
 a:visited {
   text-decoration: none;
-  color: white;
-  text-shadow: 1px 1px black;
 }
 
 a:hover {
   text-decoration: none;
-  color: white;
-  text-shadow: 1px 1px black;
 }
 
 html,
@@ -57,5 +111,36 @@ body {
 table,
 th,
 td {
+  border-spacing: 2em;
+  padding: 5px;
+  text-align: center;
+}
+
+.table_styling {
+  justify-content: center;
+}
+
+.create_show_title {
+  text-align: center;
+  font-size: 2em;
+  text-decoration: underline;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.create_nav {
+  background-color: #ded6d1;
+  padding: 0.25em;
+}
+
+.create_forms {
+  padding-left: 5px;
+}
+
+.cancel_button {
+  color: black;
+  padding: 1px 6px;
   border: 1px solid black;
+  font-size: 15px;
+  border-radius: 0.2em;
 }

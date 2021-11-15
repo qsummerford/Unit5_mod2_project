@@ -1,37 +1,32 @@
 {% extends 'base.html' %}{% block content %}
 <body class="homepage_background">
   <nav class="navbar">
-    <p>Show Creator</p>
+    <a class="logout_button" href="{% url 'logout' %}">Logout</a>
+    <p class="nav-title">Show Creator</p>
   </nav>
 
   <div class="col-md-7">
-    <hr />
     <div class="card card-body">
-      <a class="btn btn-primary btn-sm btn-block" href="{%url 'create'%}"
-        >Create</a
-      >
-      <table class="word_spacing">
+      <br />
+      <a class="create_button" href="{%url 'create'%}">Create</a>
+      <table class="table_background">
         <tr>
-          <th>User</th>
-          <th>Date Created</th>
-          <th>Network</th>
-          <th>Show</th>
+          <th class="th_background">Provider</th>
+          <th class="th_background">Network</th>
+          <th class="th_background">Show</th>
         </tr>
-        {% for shows in show %}
-        <tr class="word_spacing">
-          <td>{{shows.user}}</td>
-          {% for users in user %}
-          <td>{{users.date_created}}</td>
-          {%endfor%}
-          <td>{{shows.network}}</td>
-          <td>{{shows.show}}</td>
+        {% for formal in request.user.show_set.all%}
+        <tr>
+          <td>{{formal.provider}}</td>
+          <td>{{formal.network}}</td>
+          <td>{{formal.show}}</td>
           <td>
-            <a class="btn btn-sm btn-info" href="{% url 'update' shows.id %}"
+            <a class="update_button" href="{% url 'update' formal.id %}"
               >Update</a
             >
           </td>
           <td>
-            <a class="btn btn-sm btn-danger" href="{% url 'delete' shows.id%}"
+            <a class="delete_button" href="{% url 'delete' formal.id%}"
               >Delete</a
             >
           </td>

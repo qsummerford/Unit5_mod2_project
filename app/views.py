@@ -5,15 +5,16 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from app.forms import *
 from app.decorators import unauthenticated_user, allowed_users
+from django.contrib.auth.decorators import permission_required
 # Create your views here.
 
 def register(request):
     if request.user.is_authenticated:
         return redirect('home')
     else:
-        form = UserCreationForm()
+        form = CreateUserForm()
         if request.method == 'POST':
-            form = UserCreationForm(request.POST)
+            form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
                 return redirect ('login')
@@ -44,9 +45,7 @@ def logoutUser(request):
     return redirect('login')
 
 def homepage(request):
-    user = User.objects.all()
-    show = Show.objects.all()
-    context = {'user':user, 'show':show}
+    context = {}
     return render(request, 'home.html', context)
 
 def create_show(request):
@@ -54,7 +53,9 @@ def create_show(request):
     if request.method=='POST':
         form = ShowForm(request.POST)
         if form.is_valid():
-            form.save()
+            instance = form.save()
+            instance.user = request.user
+            instance.save()
             return redirect('home')
     context = {'form': form}
     return render (request, 'create.html', context)
@@ -77,3 +78,8 @@ def delete_show(request, pk):
         return redirect('home')
     context = {'item': shows}
     return render(request, 'delete.html', context)
+
+# @permission_required('all.html')  
+def allusers(request):
+    context = {}
+    return render (request, 'all.html', context)
