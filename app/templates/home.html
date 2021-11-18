@@ -2,37 +2,40 @@
 <body class="homepage_background">
   <nav class="navbar">
     <a class="logout_button" href="{% url 'logout' %}">Logout</a>
-    <p class="nav-title">Show Creator</p>
+    <p class="nav-title">Cable Connections</p>
   </nav>
 
   <div class="col-md-7">
     <div class="card card-body">
       <br />
-      <a class="create_button" href="{%url 'create'%}">Create</a>
-      <table class="table_background">
-        <tr>
-          <th class="th_background">Provider</th>
-          <th class="th_background">Network</th>
-          <th class="th_background">Show</th>
-        </tr>
-        {% for formal in request.user.show_set.all%}
-        <tr>
-          <td>{{formal.provider}}</td>
-          <td>{{formal.network}}</td>
-          <td>{{formal.show}}</td>
-          <td>
-            <a class="update_button" href="{% url 'update' formal.id %}"
-              >Update</a
-            >
-          </td>
-          <td>
-            <a class="delete_button" href="{% url 'delete' formal.id%}"
-              >Delete</a
-            >
-          </td>
-        </tr>
-        {% endfor %}
-      </table>
+      <div class="centering">
+        <a class="create_button" href="{%url 'create'%}">Create</a>
+        <a class="all_users_button" href="{% url 'all' %}">All Users</a>
+        <table class="table_background">
+          <tr>
+            <th class="th_background">Provider</th>
+            <th class="th_background">Network</th>
+            <th class="th_background">Show</th>
+          </tr>
+          {% for formal in request.user.show_set.all%}
+          <tr>
+            <td>{{formal.provider}}</td>
+            <td>{{formal.network}}</td>
+            <td>{{formal.show}}</td>
+            <td>
+              <a class="update_button" href="{% url 'update' formal.id %}"
+                >Update</a
+              >
+            </td>
+            <td>
+              <a class="delete_button" href="{% url 'delete' formal.id%}"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
     </div>
   </div>
   {%endblock%}

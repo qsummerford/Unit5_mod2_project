@@ -1,5 +1,5 @@
 .homepage_background {
-  background-color: #fff;
+  font-family: Helvetica;
 }
 
 .welcome_statement {
@@ -35,10 +35,25 @@
   padding: 1px;
   border-radius: 0.3em;
   background-color: white;
+  margin-left: 5px;
 }
 
 .logout_button:hover {
   background-color: #ded6d1;
+}
+
+.all_users_button {
+  text-decoration: none;
+  font-size: 1em;
+  color: black;
+  border: 2px solid black;
+  padding: 1px;
+  border-radius: 0.3em;
+  background-color: lightskyblue;
+}
+
+.all_users_button:hover {
+  background-color: lightblue;
 }
 
 .delete_button {
@@ -61,8 +76,7 @@
   background-color: #e9ecef;
   text-shadow: none;
   color: black;
-  border: black 2px;
-  border-style: ridge;
+  border: 2px solid black;
   padding: 1px;
   border-radius: 0.3em;
 }
@@ -108,16 +122,26 @@ body {
   margin: 0;
 }
 
-table,
-th,
-td {
-  border-spacing: 2em;
-  padding: 5px;
+table {
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+th {
+  padding: 5px;
+  border-spacing: 2em;
+}
+
+td {
+  padding: 5px;
+  border-spacing: 2em;
 }
 
 .table_styling {
   justify-content: center;
+  align-items: center;
 }
 
 .create_show_title {
@@ -143,4 +167,15 @@ td {
   border: 1px solid black;
   font-size: 15px;
   border-radius: 0.2em;
+}
+
+.signing_style {
+  border: none;
+  color: red;
+}
+
+.centering {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }

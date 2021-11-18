@@ -79,7 +79,8 @@ def delete_show(request, pk):
     context = {'item': shows}
     return render(request, 'delete.html', context)
 
-# @permission_required('all.html')  
+@allowed_users(allowed_roles=['admin'])
 def allusers(request):
-    context = {}
+    form = Show.objects.all()
+    context = {'form': form}
     return render (request, 'all.html', context)
