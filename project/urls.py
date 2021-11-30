@@ -26,5 +26,6 @@ urlpatterns = [
     path('create/', create_show, name='create'),
     path('update/<str:pk>/', update_show, name='update'),
     path('delete/<str:pk>/', delete_show, name='delete'),
-    path('all/', allusers, name='all')
+    path('all/', allusers, name='all'),
+    path('usertable/', usertable, name='table')
 ]

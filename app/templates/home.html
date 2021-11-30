@@ -1,42 +1,34 @@
-{% extends 'base.html' %}{% block content %}
-<body class="homepage_background">
-  <nav class="navbar">
-    <a class="logout_button" href="{% url 'logout' %}">Logout</a>
-    <p class="nav-title">Cable Connections</p>
-  </nav>
-
-  <div class="col-md-7">
-    <div class="card card-body">
-      <br />
-      <div class="centering">
-        <a class="create_button" href="{%url 'create'%}">Create</a>
-        <a class="all_users_button" href="{% url 'all' %}">All Users</a>
-        <table class="table_background">
-          <tr>
-            <th class="th_background">Provider</th>
-            <th class="th_background">Network</th>
-            <th class="th_background">Show</th>
-          </tr>
-          {% for formal in request.user.show_set.all%}
-          <tr>
-            <td>{{formal.provider}}</td>
-            <td>{{formal.network}}</td>
-            <td>{{formal.show}}</td>
-            <td>
-              <a class="update_button" href="{% url 'update' formal.id %}"
-                >Update</a
-              >
-            </td>
-            <td>
-              <a class="delete_button" href="{% url 'delete' formal.id%}"
-                >Delete</a
-              >
-            </td>
-          </tr>
-          {% endfor %}
-        </table>
+{% extends 'base.html' %}{%load static%}{% block content %}
+<div class="">
+  <body class="homepage_background">
+    <nav class="navbar">
+      <div class="link_flexbox">
+        <div class="column">
+          <a class="create_button" href="{%url 'create'%}">Create A Show</a>
+          <a class="all_users_button" href="{%url 'table' %}">
+            View Your Shows</a
+          >
+          <a class="all_users_button" href="{% url 'all' %}">View All Users</a>
+        </div>
+        <div class="column">
+          <a class="logout_button" href="{% url 'logout' %}">Logout</a>
+        </div>
       </div>
-    </div>
-  </div>
+      <hr />
+      <h1 class="title">Get Started</h1>
+      <div class="center_image">
+        <img
+          src="{%static 'center_photo.jpg' %}"
+          alt="picture of a remote pointed at a tv"
+        />
+      </div>
+      <br />
+      <br />
+      <a class="center_button" href="{%url 'create'%}">Create A Show</a>
+    </nav>
+    <header>
+      <p></p>
+    </header>
+  </body>
   {%endblock%}
-</body>
+</div>

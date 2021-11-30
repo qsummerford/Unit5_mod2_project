@@ -84,3 +84,7 @@ def allusers(request):
     form = Show.objects.all()
     context = {'form': form}
     return render (request, 'all.html', context)
+
+def usertable(request):
+    context = {}
+    return render (request, 'usertable.html', context)

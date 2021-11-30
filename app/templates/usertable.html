@@ -1,0 +1,49 @@
+{%extends 'base.html'%}{%block content%}
+<body class="homepage_background">
+  <nav class="navbar">
+    <div class="link_flexbox">
+      <div class="column">
+        <a class="create_button" href="{%url 'home'%}">Home</a>
+        <a class="all_users_button" href="{%url 'create' %}">Create a Show</a>
+        <a class="all_users_button" href="{% url 'all' %}">View All Users</a>
+      </div>
+      <div class="column">
+        <a class="logout_button" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+    <hr />
+    <p class="your_show">My Shows</p>
+  </nav>
+  <div class="col-md-7">
+    <div class="card card-body">
+      <br />
+      <div class="centering">
+        <table class="create_table">
+          <tr>
+            <th class="th_background">Provider</th>
+            <th class="th_background">Network</th>
+            <th class="th_background">Show</th>
+          </tr>
+          {% for formal in request.user.show_set.all%}
+          <tr>
+            <td>{{formal.provider}}</td>
+            <td>{{formal.network}}</td>
+            <td>{{formal.show}}</td>
+            <td>
+              <a class="update_button" href="{% url 'update' formal.id %}"
+                >Update</a
+              >
+            </td>
+            <td>
+              <a class="delete_button" href="{% url 'delete' formal.id%}"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+{%endblock%}

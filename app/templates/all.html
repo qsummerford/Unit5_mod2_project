@@ -1,24 +1,41 @@
 {% extends 'base.html' %}{% block content %}
-<body class="homepage_background">
-  <nav class="navbar">
-    <a class="logout_button" href="{% url 'logout' %}">Logout</a>
-    <p class="nav-title">Show Viewer</p>
-  </nav>
-  <a class="logout_button" href="{%url 'home' %}">Home</a>
-  <br />
-  <table class="table_background">
-    <tr>
-      <th class="th_background">Provider</th>
-      <th class="th_background">Network</th>
-      <th class="th_background">Show</th>
-    </tr>
-    {%for f in form%}
-    <tr>
-      <td>{{f.provider}}</td>
-      <td>{{f.network}}</td>
-      <td>{{f.show}}</td>
-    </tr>
-    {%endfor%}
-  </table>
-  {%endblock%}
-</body>
+<head>
+  <title>All Users</title>
+</head>
+  <body class="homepage_background">
+    <nav class="navbar">
+      <div class="link_flexbox">
+        <div class="column">
+          <a class="create_button" href="{%url 'home'%}">Home</a>
+          <a class="all_users_button" href="{%url 'create' %}">
+            Create a Show</a
+          >
+          <a class="all_users_button" href="{% url 'table' %}"
+            >View Your Shows</a
+          >
+        </div>
+        <div class="column">
+          <a class="logout_button" href="{% url 'logout' %}">Logout</a>
+        </div>
+      </div>
+      <hr />
+      <p class="your_show">All Shows</p>
+    </nav>
+    <br />
+    <table class="all_table">
+      <tr>
+        <th class="th_background">Provider</th>
+        <th class="th_background">Network</th>
+        <th class="th_background">Show</th>
+      </tr>
+      {%for f in form%}
+      <tr>
+        <td>{{f.provider}}</td>
+        <td>{{f.network}}</td>
+        <td>{{f.show}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+    {%endblock%}
+  </body>
+</head>

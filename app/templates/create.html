@@ -1,14 +1,29 @@
 {% extends 'base.html' %}{% block content %}
 <div class="homepage_background">
   <body class="create_styling">
-    <nav class="create_nav">
-      <p class="create_show_title">Customization</p>
+    <nav class="navbar">
+      <div class="link_flexbox">
+        <div class="column">
+          <a class="create_button" href="{%url 'home'%}">Home</a>
+          <a class="all_users_button" href="{%url 'table' %}">
+            View Your Shows</a
+          >
+          <a class="all_users_button" href="{% url 'all' %}">View All Users</a>
+        </div>
+        <div class="column">
+          <a class="logout_button" href="{% url 'logout' %}">Logout</a>
+        </div>
+      </div>
+      <hr />
+      <p class="your_show">Creating a Show</p>
     </nav>
     <form method="POST" action="">
       {% csrf_token %}
-      <b>{{form.as_p}}</b>
-      <a class="cancel_button" href="{% url 'home' %}">Cancel</a>
-      <input type="submit" name="Submit" />
+      <b class="create_forms">{{form.as_p}}</b>
+      <div class="cancel_button_align">
+        <a class="cancel_button" href="{% url 'home' %}">Cancel</a>
+        <input type="submit" name="Submit" />
+      </div>
     </form>
   </body>
   {%endblock%}
